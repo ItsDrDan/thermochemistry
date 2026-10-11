@@ -1,0 +1,30 @@
+{
+  "title": "Thermochemistry Study Game",
+  "author": "Dr. Dan (ItsDrDan)",
+  "course": "CHEM 3A",
+  "description": "Interactive thermochemistry practice for CHEM 3A with six modes: Mixed Practice, Phase & Energy Detective, Temperature & Heat, Phase-Change Heat, Heat Explorer, and Total-Heat Challenge. Identify phase changes, interpret phase diagrams and heating/cooling curves, classify endothermic and exothermic reactions, and practice q = mcΔT and q = nΔH. Includes specific-heat identification, volume-to-mass calculations, heat capacity, container-plus-water calculations, multi-stage total heat, and an interactive model comparing materials and masses. Features randomized questions, guided steps, hints, answer reveals, collapsible solution maps and completed work, scoring, streaks, celebrations, embedded ItsDrDan video lessons, and an Intro-only PhET simulation. Responsive for desktop, mobile, and Canvas embeds. CHEM 1A is under construction.",
+  "tags": [
+    "chemistry",
+    "CHEM 3A",
+    "thermochemistry",
+    "heat",
+    "energy",
+    "temperature",
+    "specific heat",
+    "heat capacity",
+    "phase changes",
+    "phase diagrams",
+    "heating curves",
+    "cooling curves",
+    "heat of fusion",
+    "heat of vaporization",
+    "endothermic",
+    "exothermic",
+    "total heat",
+    "guided practice",
+    "interactive model",
+    "PhET"
+  ],
+  "version": "5",
+  "status": "working"
+}
