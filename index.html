@@ -624,7 +624,7 @@ a{color:var(--accent-d)}
 </style><script src="https://itsdrdan.github.io/games/track.js" defer></script>
 
 <link rel="stylesheet" href="https://itsdrdan.github.io/games/brand/itsdrdan.css">
-<script src="https://itsdrdan.github.io/games/brand/chemparse.v1.js"></script><!-- shared number reading (never edited; a change is a new version) -->
+<script src="https://itsdrdan.github.io/games/brand/chemparse.v2.js"></script><!-- shared number reading (never edited; a change is a new version) -->
 <script src="https://itsdrdan.github.io/games/brand/icons.js" defer></script>
 <script src="https://itsdrdan.github.io/games/brand/embed.js" defer></script>
 <style>/* sweep 2026-11-05: top bar fits tablet and Canvas widths */@media(max-width:800px){.tb-brand span,.tb-btn span{display:none}}/* Touch targets: at least 44 px on phones (house rule, WCAG 2.2), 2026-11-14. Inline links inside sentences are exempt. */
@@ -755,7 +755,8 @@ function draw(key,arr){let st=bags[key];const sig=(!st||!st.bag.length)?drawSig(
   else{const prev=st?st.val:same?saved.val:undefined,vals=arr.map(x=>JSON.stringify(x));st={sig,bag:separate(vals,prev).reverse(),val:prev}}
   bags[key]=st}
  const i=st.bag.pop();st.val=JSON.stringify(arr[i]);drawStore[key]={sig:st.sig,bag:[...st.bag],val:st.val};drawSave();return structuredClone(arr[i])}
-function fmt(x,d=3){if(x===0)return '0';if(!Number.isFinite(x))throw Error('Nonfinite answer');const e=Math.floor(Math.log10(Math.abs(x))),ex=r=>{let[a,b]=r.toExponential(d-1).split('e');return a+' × 10'+String(+b).replace(/[0-9-]/g,c=>c==='-'?'⁻':'⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]);};if(e>=4||e<=-3)return ex(x);if(d>4)return Number(x.toPrecision(d)).toString();
+/* Dr. Dan's rule (2026-11-14): a regular number whenever it can show the sig figs (0.0472, 380., 1230); scientific notation when it cannot (6000 to 2 sf is 6.0 × 10³) or the number is very large or very small. Shared: chemparse.v2.js */
+function fmt(x,d=3){if(x===0)return '0';if(!Number.isFinite(x))throw Error('Nonfinite answer');if(d<=4)return CP.fmt(x,d); /* d > 4 is a plain data display, unchanged */const e=Math.floor(Math.log10(Math.abs(x))),ex=r=>{let[a,b]=r.toExponential(d-1).split('e');return a+' × 10'+String(+b).replace(/[0-9-]/g,c=>c==='-'?'⁻':'⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]);};if(e>=5||e<=-4)return ex(x);if(d>4)return Number(x.toPrecision(d)).toString();
 /* d ≤ 4 is a sig-fig display: keep significant trailing zeros (12.0, 380.); a bare 1200 would read as 2 sig figs, so use 1.20 × 10³ */const r=Number(x.toPrecision(d)),re=Math.floor(Math.log10(Math.abs(r)));let s=r.toFixed(Math.max(0,d-1-re));if(!s.includes('.')&&s.replace(/^-/,'').replace(/0+$/,'').length<d){if(re===d-1)s+='.';else return ex(r);}return s}
 /* a comma that is not a thousands separator (2,5) is a decimal comma: not a number here */
 /* Shared number reading: games/brand/chemparse.v1.js (loaded in <head>). If it did not load, say so instead of marking answers wrong. */
