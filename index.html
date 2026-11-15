@@ -626,7 +626,14 @@ a{color:var(--accent-d)}
 <link rel="stylesheet" href="https://itsdrdan.github.io/games/brand/itsdrdan.css">
 <script src="https://itsdrdan.github.io/games/brand/icons.js" defer></script>
 <script src="https://itsdrdan.github.io/games/brand/embed.js" defer></script>
-<style>/* sweep 2026-11-05: top bar fits tablet and Canvas widths */@media(max-width:800px){.tb-brand span,.tb-btn span{display:none}}</style>
+<style>/* sweep 2026-11-05: top bar fits tablet and Canvas widths */@media(max-width:800px){.tb-brand span,.tb-btn span{display:none}}/* Touch targets: at least 44 px on phones (house rule, WCAG 2.2), 2026-11-14. Inline links inside sentences are exempt. */
+#referenceBtn{min-height:44px;min-width:44px}
+details.topic-directions>summary{min-height:44px;padding-top:10px;padding-bottom:10px;box-sizing:border-box}
+label.mini-switch{min-height:44px;display:inline-flex;align-items:center}
+#modelEnergy{min-height:44px}
+.hx-mat,.hx-tries button,#reset,.video-chapters button{min-height:44px}
+details.map>summary{min-height:44px;padding-top:10px;padding-bottom:10px;box-sizing:border-box}
+</style>
 <script src="https://itsdrdan.github.io/questionbank/whys.js" defer></script>
 <script>
 /* Per-choice "why" feedback from the shared question bank (itsdrdan.github.io/questionbank/whys.js).
